@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 
 import me.victork.clientcrypt.core.CryptographyOptions.CRYPTOGRAPHY_OPTIONS;
 import me.victork.clientcrypt.ui.action.ClearAllAction;
+import me.victork.clientcrypt.ui.action.CopyToPage;
 import me.victork.clientcrypt.ui.action.DecryptAction;
 import me.victork.clientcrypt.ui.action.EncryptAction;
 
@@ -97,7 +98,7 @@ public class CryptPanel extends JPanel {
 		clear_all.addActionListener(new ClearAllAction(this));
 		
 		JButton encrypted_txt_to_form = new JButton("Export to form");
-		
+		encrypted_txt_to_form.addActionListener(new CopyToPage(this));
 		
 		
 		buttons_bottom_panel.add(encrypt_button);
@@ -191,5 +192,8 @@ public class CryptPanel extends JPanel {
 		
 	}
 	
+	public void receive(){
+		input_area.setText("received");
+	}
 	
 }

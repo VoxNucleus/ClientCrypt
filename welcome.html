@@ -1,0 +1,66 @@
+<html>
+
+<head>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<title>Test</title>
+<script type="text/javascript">
+var clientcrypt_focus=$(".clientcrypt_target");
+function arm(name){
+	alert("test");
+}
+
+function decrypt(){
+	var applet=$("#clientcrypt_applet")[0];
+	applet.receive("caca")
+}
+
+function fill_enc(infos_fill){
+	
+
+	var to_insert= "[e";
+	
+	if(infos_fill['algorithm']){
+		to_insert=" algo="+infos_fill['algorithm'];
+	}
+
+	to_insert=to_insert+"]"+infos_fill['encrypted_txt']+"[/e]";
+
+	("#"+infos_fill['form_id']).val=$("#"+infos_fill['form_id']).val+to_insert;
+}
+
+</script>
+</head>
+
+<body>
+Test
+
+<div>
+<applet id="clientcrypt_applet" name="clientcrypt_applet" code="me.victork.clientcrypt.main.ClientCrypt" MAYSCRIPT archive="ClientCrypt.jar,bcprov-jdk16-146.jar,plugin.jar, gson-1.7.1.jar" width="600" height="500">
+</applet>
+</div>
+
+
+<div>
+<textarea class="clientcrypt_target" id="crypt_area">test</textarea>
+<button id="arm_script" onclick="arm('arm crypt_area')">Arm this textarea</button>
+<button id="decrypt_script" onclick="decrypt()">Decrypt</button>
+</div>
+
+<br/>
+Cross browser
+<object 
+  classid="clsid:CAFEEFAC-0015-0000-0000-ABCDEFFEDCBA">
+  <param name="archive" value="ClientCrypt.jar,bcprov-jdk16-146.jar">
+  <param name="code" value="Applet1.class">
+    <comment>
+      <embed code="Applet1.class"
+        type="application/x-java-applet;jpi-version=1.6.0">
+        <noembed>
+          No Java Support.
+        </noembed>
+      </embed>
+    </comment>
+  </object>
+
+</body>
+</html>
