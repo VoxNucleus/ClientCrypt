@@ -23,7 +23,6 @@ public class CopyToPage implements ActionListener{
 			String encrypted_txt= cPanel.getEncryptedText();
 			MessageToBrowser msg = new MessageToBrowser(BrowserInteraction.form_id,
 					algo,encrypted_txt);
-
 			BrowserInteraction.invoke(msg);}
 		catch(Exception ex){
 			cPanel.setEncryptedText(ex.toString()+" \\ "+ex.getMessage());

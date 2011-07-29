@@ -20,12 +20,12 @@ function fill_enc(infos_fill){
 	var to_insert= "[e";
 	
 	if(infos_fill['algorithm']){
-		to_insert=" algo="+infos_fill['algorithm'];
+		to_insert=to_insert+" algo="+infos_fill['algorithm'];
 	}
 
 	to_insert=to_insert+"]"+infos_fill['encrypted_txt']+"[/e]";
 
-	("#"+infos_fill['form_id']).val=$("#"+infos_fill['form_id']).val+to_insert;
+	$("#"+infos_fill['form_id']).val($("#"+infos_fill['form_id']).val()+to_insert);
 }
 
 </script>
@@ -35,7 +35,7 @@ function fill_enc(infos_fill){
 Test
 
 <div>
-<applet id="clientcrypt_applet" name="clientcrypt_applet" code="me.victork.clientcrypt.main.ClientCrypt" MAYSCRIPT archive="ClientCrypt.jar,bcprov-jdk16-146.jar,plugin.jar, gson-1.7.1.jar" width="600" height="500">
+<applet id="clientcrypt_applet" name="clientcrypt_applet" code="me.victork.clientcrypt.main.ClientCrypt" MAYSCRIPT archive="ClientCrypt.jar,bcprov-jdk16-146.jar,plugin.jar" width="600" height="500">
 </applet>
 </div>
 

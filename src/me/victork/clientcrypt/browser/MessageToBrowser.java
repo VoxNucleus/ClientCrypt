@@ -1,12 +1,15 @@
 package me.victork.clientcrypt.browser;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * 
  * @author victor
  *
  */
-public class MessageToBrowser extends JavaScriptAbstractMessage {
+
+public class MessageToBrowser extends JavaScriptAbstractMessage  {
 	
 	public static String associated_function="fill_enc";
 	
@@ -30,6 +33,21 @@ public class MessageToBrowser extends JavaScriptAbstractMessage {
 	
 	public String getEncrypted_txt(){
 		return encrypted_txt;
+	}
+
+	@Override
+	public String toJSONString()  {
+		JSONObject object = new JSONObject();
+		try {
+			object.put("form_id", form_id);
+			object.put("algorithm", algorithm);
+			object.put("encrypted_txt", encrypted_txt);
+			return object.toString();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }

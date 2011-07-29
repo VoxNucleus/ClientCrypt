@@ -2,8 +2,6 @@ package me.victork.clientcrypt.browser;
 
 import javax.swing.JApplet;
 
-import com.google.gson.Gson;
-
 import me.victork.clientcrypt.ui.ClientCryptPanel;
 import netscape.javascript.JSObject;
 
@@ -16,7 +14,7 @@ import netscape.javascript.JSObject;
  */
 public class BrowserInteraction {
 	
-	public static String form_id="clientcrypt_target";
+	public static String form_id="crypt_area";
 	private static JApplet applet;
 	private static ClientCryptPanel panel;
 	private static String JAVASCRIPT_FUNCTION="fill_enc";
@@ -39,10 +37,8 @@ public class BrowserInteraction {
 	 */
 	public static void invoke(JavaScriptAbstractMessage mess){
 		JSObject window=JSObject.getWindow(applet);
-		Gson gson_converter = new Gson();
 		
-		window.eval(JAVASCRIPT_FUNCTION+"("+ gson_converter.toJson(mess)+")");
-		window.call(JAVASCRIPT_FUNCTION, null);
+		window.eval(JAVASCRIPT_FUNCTION+"("+ mess.toJSONString()+")");
 	}
 	
 	public static void receive(){

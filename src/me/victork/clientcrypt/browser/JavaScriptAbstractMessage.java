@@ -1,6 +1,8 @@
 package me.victork.clientcrypt.browser;
 
-public abstract class JavaScriptAbstractMessage {
+import org.json.JSONString;
+
+public abstract class JavaScriptAbstractMessage implements JSONString {
 	
 	public static String associated_function="";
 	
